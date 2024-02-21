@@ -1,0 +1,32 @@
+#root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    .loading {
+        width: 100%;
+        height: auto;
+        background-color: #000;
+        color: #ffffff;
+        position: absolute;
+        z-index: 5000;
+    }
+
+    .react-transform-wrapper,
+    .react-transform-component {
+        width: 100% !important;
+        background: #e0e0e0;
+    }
+
+    .circulo {
+        cursor: pointer;
+        opacity: .5;
+        transition: .5s;
+
+        &:hover {
+            opacity: 1;
+            transition: .5s;
+        }
+    }
+}

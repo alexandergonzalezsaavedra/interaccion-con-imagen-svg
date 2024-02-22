@@ -5,7 +5,7 @@ const AmarilloModule = () => {
     <div>
       <h3>Eligio el color amarillo mi perro</h3>
       <br />
-      <input type="color" value="#ecf763" />
+      <input type="color" defaultValue="#ecf763" />
     </div>
   );
 };

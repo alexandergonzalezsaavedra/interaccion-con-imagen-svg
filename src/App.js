@@ -21,44 +21,56 @@ const App = () => {
     try {
       setCargando(true);
       const circulos = document.querySelectorAll("#contentMapAdmin path");
+      const quitarActive = () => {
+        circulos.forEach((c) => {
+          c.classList.remove(`activeMap`);
+        });
+      };
       circulos.forEach((c) => {
         c.classList.add(`circulo`);
       });
       circulos[0].addEventListener("click", (e) => {
         e.preventDefault();
-        console.log("click en el azul");
         setTexto(<AzulModule />);
+        quitarActive();
+        circulos[0].classList.add("activeMap");
         //document.location.href = "#resContentMap";
       });
       circulos[6].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<GrisModule />);
-        //document.location.href = "#resContentMap";
+        quitarActive();
+        circulos[6].classList.add("activeMap");
       });
       circulos[3].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<AmarilloModule />);
-        //document.location.href = "#resContentMap";
+        quitarActive();
+        circulos[3].classList.add("activeMap");
       });
       circulos[4].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<RojoModule />);
-        //document.location.href = "#resContentMap";
+        quitarActive();
+        circulos[4].classList.add("activeMap");
       });
       circulos[2].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<NaranjaModule />);
-        //document.location.href = "#resContentMap";
+        quitarActive();
+        circulos[2].classList.add("activeMap");
       });
       circulos[5].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<VioletaModule />);
-        //document.location.href = "#resContentMap";
+        quitarActive();
+        circulos[5].classList.add("activeMap");
       });
       circulos[1].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<OcreModule />);
-        //document.location.href = "#resContentMap";
+        quitarActive();
+        circulos[1].classList.add("activeMap");
       });
     } catch (error) {
     } finally {
@@ -110,7 +122,9 @@ const App = () => {
                   </TransformWrapper>
                   <button
                     className="btn btn-outline-danger rounded-0"
-                    onClick={() => setTexto(<InicioConveniosMapa />)}
+                    onClick={() => {
+                      setTexto(<InicioConveniosMapa />);
+                    }}
                   >
                     Cantidad de convenios
                   </button>

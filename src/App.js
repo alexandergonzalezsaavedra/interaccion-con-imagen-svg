@@ -13,6 +13,7 @@ import NaranjaModule from "./components/Colores/Naranja.Module";
 import VioletaModule from "./components/Colores/Violeta.Module";
 import OcreModule from "./components/Colores/Ocre.Module";
 import LoadingModule from "./components/Loading/Loading.Module";
+import InicioConveniosMapa from "./components/Inicio/InicioConveniosMapa.Module";
 const App = () => {
   const [texto, setTexto] = useState();
   const [cargando, setCargando] = useState(false);
@@ -67,11 +68,20 @@ const App = () => {
   const Controls = () => {
     const { zoomIn, zoomOut, resetTransform } = useControls();
     return (
-      <>
-        <button onClick={() => zoomIn()}>Acercar</button>
-        <button onClick={() => zoomOut()}>Alejar</button>
-        <button onClick={() => resetTransform()}>Restablecer tamaño</button>
-      </>
+      <div className="btn-group gap-1">
+        <button onClick={() => zoomIn()} className="btn btn-primary rounded-0">
+          Acercar
+        </button>
+        <button onClick={() => zoomOut()} className="btn btn-primary rounded-0">
+          Alejar
+        </button>
+        <button
+          onClick={() => resetTransform()}
+          className="btn btn-primary rounded-0"
+        >
+          Restablecer tamaño
+        </button>
+      </div>
     );
   };
   return (
@@ -80,25 +90,52 @@ const App = () => {
         if (cargando) return <LoadingModule />;
         else {
           return (
-            <div id="contentMapAdmin">
-              <TransformWrapper>
-                <Controls />
-                <TransformComponent>
-                  <CirculosSvg />
-                </TransformComponent>
-              </TransformWrapper>
-              {(() => {
-                if (!texto) {
-                  return (
-                    <>
-                      <h3>Seleccione un color</h3>
-                    </>
-                  );
-                } else {
-                  return <div id="resContentMap">{texto}</div>;
-                }
-              })()}
-            </div>
+            <>
+              <div className="container text-center mb-3">
+                <h3>Vive una experiencia global:</h3>
+                <p>Descubre las experiencias internacionales que te esperan</p>
+              </div>
+              <div className="row" id="contentMapAdmin">
+                <div className="col-sm-6">
+                  <TransformWrapper>
+                    <small>
+                      elige un pais para conocer los convenios con la
+                      universidad
+                    </small>
+                    <br />
+                    <Controls />
+                    <TransformComponent>
+                      <CirculosSvg />
+                    </TransformComponent>
+                  </TransformWrapper>
+                  <button
+                    className="btn btn-outline-danger rounded-0"
+                    onClick={() => setTexto(<InicioConveniosMapa />)}
+                  >
+                    Cantidad de convenios
+                  </button>
+                </div>
+                {(() => {
+                  if (!texto) {
+                    return (
+                      <div className="col-sm-6">
+                        <div style={{ paddingTop: "100px" }}>
+                          <InicioConveniosMapa />
+                        </div>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div className="col-sm-6">
+                        <div id="resContentMap" style={{ paddingTop: "150px" }}>
+                          {texto}
+                        </div>
+                      </div>
+                    );
+                  }
+                })()}
+              </div>
+            </>
           );
         }
       })()}

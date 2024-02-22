@@ -13,46 +13,51 @@ import NaranjaModule from "./components/Colores/Naranja.Module";
 import VioletaModule from "./components/Colores/Violeta.Module";
 import OcreModule from "./components/Colores/Ocre.Module";
 import LoadingModule from "./components/Loading/Loading.Module";
-
 const App = () => {
   const [texto, setTexto] = useState();
   const [cargando, setCargando] = useState(false);
   window.addEventListener("load", function () {
-    setCargando(true);
     try {
-      const circulos = document.querySelectorAll("circle");
+      setCargando(true);
+      const circulos = document.querySelectorAll("#contentMapAdmin path");
       circulos.forEach((c) => {
         c.classList.add(`circulo`);
       });
-      let [azul, gris, amarillo, rojo, naranja, violeta, ocre] = circulos;
-      console.log(azul);
-      azul.addEventListener("click", (e) => {
+      circulos[0].addEventListener("click", (e) => {
         e.preventDefault();
+        console.log("click en el azul");
         setTexto(<AzulModule />);
+        document.location.href = "#resContentMap";
       });
-      gris.addEventListener("click", (e) => {
+      circulos[6].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<GrisModule />);
+        document.location.href = "#resContentMap";
       });
-      amarillo.addEventListener("click", (e) => {
+      circulos[3].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<AmarilloModule />);
+        document.location.href = "#resContentMap";
       });
-      rojo.addEventListener("click", (e) => {
+      circulos[4].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<RojoModule />);
+        document.location.href = "#resContentMap";
       });
-      naranja.addEventListener("click", (e) => {
+      circulos[2].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<NaranjaModule />);
+        document.location.href = "#resContentMap";
       });
-      violeta.addEventListener("click", (e) => {
+      circulos[5].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<VioletaModule />);
+        document.location.href = "#resContentMap";
       });
-      ocre.addEventListener("click", (e) => {
+      circulos[1].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<OcreModule />);
+        document.location.href = "#resContentMap";
       });
     } catch (error) {
     } finally {
@@ -75,7 +80,7 @@ const App = () => {
         if (cargando) return <LoadingModule />;
         else {
           return (
-            <>
+            <div id="contentMapAdmin">
               <TransformWrapper>
                 <Controls />
                 <TransformComponent>
@@ -90,10 +95,10 @@ const App = () => {
                     </>
                   );
                 } else {
-                  return texto;
+                  return <div id="resContentMap">{texto}</div>;
                 }
               })()}
-            </>
+            </div>
           );
         }
       })()}

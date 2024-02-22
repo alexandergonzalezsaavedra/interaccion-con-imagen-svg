@@ -28,37 +28,37 @@ const App = () => {
         e.preventDefault();
         console.log("click en el azul");
         setTexto(<AzulModule />);
-        document.location.href = "#resContentMap";
+        //document.location.href = "#resContentMap";
       });
       circulos[6].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<GrisModule />);
-        document.location.href = "#resContentMap";
+        //document.location.href = "#resContentMap";
       });
       circulos[3].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<AmarilloModule />);
-        document.location.href = "#resContentMap";
+        //document.location.href = "#resContentMap";
       });
       circulos[4].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<RojoModule />);
-        document.location.href = "#resContentMap";
+        //document.location.href = "#resContentMap";
       });
       circulos[2].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<NaranjaModule />);
-        document.location.href = "#resContentMap";
+        //document.location.href = "#resContentMap";
       });
       circulos[5].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<VioletaModule />);
-        document.location.href = "#resContentMap";
+        //document.location.href = "#resContentMap";
       });
       circulos[1].addEventListener("click", (e) => {
         e.preventDefault();
         setTexto(<OcreModule />);
-        document.location.href = "#resContentMap";
+        //document.location.href = "#resContentMap";
       });
     } catch (error) {
     } finally {
@@ -103,10 +103,10 @@ const App = () => {
                       universidad
                     </small>
                     <br />
-                    <Controls />
                     <TransformComponent>
                       <CirculosSvg />
                     </TransformComponent>
+                    <Controls />
                   </TransformWrapper>
                   <button
                     className="btn btn-outline-danger rounded-0"
